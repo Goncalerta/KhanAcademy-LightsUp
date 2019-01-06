@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Lights up!</title>
+    <script src="https://cdn.jsdelivr.net/gh/processing-js/processing-js@v1.4.8/processing.js"></script>
+    <script>
+        var hash = window.location.search.substr(1);
+
+        var result = hash.split('&').reduce(function (result, item) {
+            var parts = item.split('=');
+            result[parts[0]] = parts[1];
+            return result;
+        }, {});
+        
+
+        var debugMode = result["debug"] === "true";
+        var xTiles = result["x"] == null? 4 : Number(result["x"]);
+        var yTiles = result["y"] == null? 4 : Number(result["y"]);
+    </script>
+    <style>
+        p {
+            width: 400px;
+            text-align: justify;
+            text-indent: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <canvas width="400" height="400" data-processing-sources="lightsup.js"></canvas>
+
+        <p>This is a project originally made by me (Goncalerta) in <a href="http://khanacademy.org/">KhanAcademy</a>
+            back in 2015.
+            Almost no changes where made, only those really needed to make it able to run outside the website.</p>
+        <p>If you wish to see the original, <a href="https://www.khanacademy.org/computer-programming/lights-up/5239110786351104">click
+                here</a>.</p>
+    </center>
+</body>
+
+</html>
